@@ -91,6 +91,13 @@ class AdHocCLI(CLI):
         # only thing left should be host pattern
         pattern = to_text(context.CLIARGS['args'][0], errors='surrogate_or_strict')
 
+        
+        # [custom] 
+        # import host pattern in env to support inventory scripts use host pattern for parameters
+        
+        os.environ['SER'] = pattern
+        
+        
         sshpass = None
         becomepass = None
 
